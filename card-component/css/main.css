@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --dark-blue:hsl(233, 47%, 7%);
+    --desaturated-blue: hsl(244, 38%, 16%);
+    --violet: hsl(277, 64%, 61%);
+    --white: hsl(0, 0%, 100%);
+    --white-two: hsla(0, 0%, 100%, 0.75);
+    --white-three: hsla(0, 0%, 100%, 0.6);
+}
+
+body {
+    background: hsl(233, 47%, 7%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main-card {
+    width: 1440px;
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+    height: 500px;
+}
+.card-left {
+    width: 50%;
+    background-color: var(--desaturated-blue);
+    padding: 5rem;
+}
+.card-left h2 {
+    font-size: 3rem;
+    color: var(--white);
+}
+.card-left .desc {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    width: 450px;
+    color: var(--white-three);
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+}
+.card-left .main-list{
+    display: flex;
+    color: var(--white);
+}
+.card-left .main-list .list{
+    margin-right: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.card-left .main-list .list p {
+    font-size: 1.8rem;
+}
+.card-left .main-list .list-desc {
+    font-size: 1rem !important;
+    font-weight: 400;
+    color: var(--white-three);
+    margin-top: 0.5rem;
+}
+.purple {
+    font-size: 3rem;
+    color: var(--violet);
+}
+
+.card-right {
+    width: 50%;
+    background-color: var(--violet);
+    position: relative;
+}
+.card-right::after {
+    display: block;
+    content: "";
+    /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
+}
+.card-right img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    mix-blend-mode: hard-light;
+    object-fit: cover;
+    /* object-fit: contain;
+    object-position: 0 0; */
+}
+
+@media only screen and (max-width:960px){
+    .main-card {
+        width: 375px;
+        flex-direction: column;
+        height: auto;
+    }
+    .card-left, .card-right {
+        width: 100%;
+    }
+    .card-left {
+        order: 2;
+        text-align: center;
+        padding: 3rem;
+    }
+    .card-left h2 {
+        font-size: 2rem;
+    }
+    .purple {
+        font-size: 2rem;
+    }
+    .card-left .desc {
+        width: 100%;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    .card-left .main-list {
+        flex-direction: column;
+    }
+    .card-left .main-list .list{
+        margin-right: 0rem;
+        margin-bottom: 1.6rem;
+    }
+    .card-right {
+        order: 1;
+    }
+    .card-right::after {
+        display: block;
+        content: "";
+        /* 4:3 Aspect Ratio (divide 3 by 4 = 0.75) */
+        padding-bottom: 75%;
+    }
+}
